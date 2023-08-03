@@ -3,11 +3,22 @@
   "version": "0.1.0",
   "description": "webrtc-streamer",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "commit": "cz"
+  },
   "keywords": [
     "webrtc",
     "streamer"
   ],
   "author": "ReinerLau",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
