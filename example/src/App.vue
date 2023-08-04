@@ -1,47 +1,19 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { SrsRtcPlayerAsync } from 'rtc-streamer'
+import { onMounted, ref, type Ref } from 'vue'
+
+const videoRef: Ref<HTMLVideoElement | undefined> = ref()
+
+onMounted(() => {
+  const srs = new SrsRtcPlayerAsync()
+  if (videoRef.value) {
+    videoRef.value.srcObject = srs.stream
+  }
+
+  srs.play(`webrtc://${window.location.host}/test/test`)
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <video ref="videoRef" style="width: 50%" autoplay muted controls loop></video>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
