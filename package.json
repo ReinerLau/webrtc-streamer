@@ -1,17 +1,8 @@
 {
-  "name": "webrtc-streamer",
-  "version": "0.1.0",
-  "description": "webrtc-streamer",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "commit": "cz"
   },
-  "keywords": [
-    "webrtc",
-    "streamer"
-  ],
-  "author": "ReinerLau",
-  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",

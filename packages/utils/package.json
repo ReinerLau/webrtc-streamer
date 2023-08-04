@@ -1,0 +1,13 @@
+{
+  "name": "rtc-streamer",
+  "version": "0.1.0",
+  "description": "webrtc-streamer",
+  "main": "index.ts",
+  "scripts": {},
+  "keywords": [
+    "webrtc",
+    "streamer"
+  ],
+  "author": "ReinerLau",
+  "license": "MIT"
+}
