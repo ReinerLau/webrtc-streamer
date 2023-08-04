@@ -2,14 +2,24 @@
   "name": "rtc-streamer",
   "version": "0.1.0",
   "description": "webrtc-streamer",
-  "main": "index.ts",
-  "types": "index.ts",
-  "scripts": {},
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  },
   "keywords": [
     "webrtc",
     "streamer",
     "srs"
   ],
   "author": "ReinerLau",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "rollup": "^3.27.1"
+  },
+  "files": [
+    "lib"
+  ]
 }
