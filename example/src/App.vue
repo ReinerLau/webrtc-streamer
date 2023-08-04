@@ -9,8 +9,9 @@ onMounted(() => {
   if (videoRef.value) {
     videoRef.value.srcObject = srs.stream
   }
-
-  srs.play(`webrtc://${window.location.host}/test/test`)
+  srs.play(`webrtc://192.168.18.140/test/test`).catch((error) => {
+    console.log(error)
+  })
 })
 </script>
 
