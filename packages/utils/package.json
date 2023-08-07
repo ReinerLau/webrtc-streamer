@@ -2,6 +2,7 @@
   "name": "rtc-streamer",
   "version": "0.2.0",
   "description": "webrtc-streamer",
+  "repository": "https://github.com/ReinerLau/webrtc-streamer/tree/master/packages/utils",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
   "scripts": {
