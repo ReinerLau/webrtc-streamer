@@ -11,6 +11,8 @@ npm i rtc-streamer --save
 
 ### 使用
 
+拉流
+
 ```js
 const srs = new SrsRtcPlayerAsync();
 const video = document.getElementsByTagName("video");

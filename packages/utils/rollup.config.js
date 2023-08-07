@@ -5,7 +5,7 @@ module.exports = {
   input: "index.ts",
   output: {
     dir: "lib",
-    format: "cjs",
+    format: "es",
   },
   plugins: [terser(), typescript()],
 };

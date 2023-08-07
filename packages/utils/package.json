@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "webrtc-streamer",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "types": "lib/index.d.js",
   "scripts": {
     "build": "rollup -c"
   },
@@ -17,7 +17,8 @@
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^11.1.2",
-    "rollup": "^3.27.1"
+    "rollup": "^3.27.1",
+    "tslib": "^2.6.1"
   },
   "files": [
     "lib"
