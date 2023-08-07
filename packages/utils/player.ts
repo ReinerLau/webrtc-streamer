@@ -1,3 +1,5 @@
+import { Api, getSession } from "./shared";
+
 export class SrsRtcPlayerAsync {
   private pc: RTCPeerConnection;
   public stream: MediaStream;
@@ -21,34 +23,16 @@ export class SrsRtcPlayerAsync {
     await this.pc.setLocalDescription(offer);
 
     try {
-      const session = await getSession(url, offer);
+      const session = await getSession(Api.PLAYER, url, offer);
       await this.pc.setRemoteDescription(
         new RTCSessionDescription({ type: "answer", sdp: session.sdp })
       );
       return true;
     } catch {
-      throw "请求视频流失败";
+      throw "拉流失败";
     }
   }
   close() {
     this.pc && this.pc.close();
   }
-}
-
-async function getSession(streamurl: string, offer: RTCSessionDescriptionInit) {
-  const body = {
-    streamurl,
-    sdp: offer.sdp,
-  };
-
-  const res = await fetch("/rtc/v1/play/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  const data = await res.json();
-
-  return data;
 }

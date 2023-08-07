@@ -1,6 +1,6 @@
 {
   "name": "rtc-streamer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "webrtc-streamer",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
