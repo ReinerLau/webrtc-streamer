@@ -22,8 +22,15 @@ export class SrsRtcPlayerAsync {
     const offer = await this.pc.createOffer();
     await this.pc.setLocalDescription(offer);
 
+    let params = "";
+    if (url.includes("?")) {
+      const index = url.indexOf("?");
+      params = url.slice(index);
+    }
+    const api = `${Api.PLAYER}${params}`;
+
     try {
-      const session = await getSession(Api.PLAYER, url, offer);
+      const session = await getSession(api, url, offer);
       await this.pc.setRemoteDescription(
         new RTCSessionDescription({ type: "answer", sdp: session.sdp })
       );
