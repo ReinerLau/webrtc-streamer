@@ -1,11 +1,18 @@
 import { Api, getSession } from "./shared";
 
+interface Constraints {
+  audio: boolean;
+  video: boolean;
+}
+
 export class SrsRtcPublisherAsync {
   private pc;
   public stream;
-  constructor() {
+  private constraints: Constraints;
+  constructor(constraints: Constraints = { audio: true, video: true }) {
     this.pc = new RTCPeerConnection();
     this.stream = new MediaStream();
+    this.constraints = constraints;
   }
   async publish(url: string) {
     if (errorType.noMediaDevices.validator()) {
@@ -19,10 +26,7 @@ export class SrsRtcPublisherAsync {
 
     let stream;
     try {
-      stream = await navigator.mediaDevices.getUserMedia({
-        audio: true,
-        video: true,
-      });
+      stream = await navigator.mediaDevices.getUserMedia(this.constraints);
     } catch {
       console.error(errorType.noMediaDevices.message);
     }
