@@ -9,14 +9,14 @@ onMounted(() => {
   if (videoRef.value) {
     videoRef.value.srcObject = srs.stream
   }
-  srs.play(`webrtc://192.168.18.72/test/test?eip=192.168.18.72:7000`).catch((error) => {
+  srs.play(`webrtc://119.91.145.64/live/test`).catch((error) => {
     console.log(error)
   })
 })
 
 function handlePublish() {
-  const srs = new SrsRtcPublisherAsync()
-  srs.publish(`webrtc://192.168.18.72/test/test1?eip=192.168.18.72:7000`).catch((error: any) => {
+  const srs = new SrsRtcPublisherAsync({ audio: true, video: false })
+  srs.publish(`webrtc://119.91.145.64/test/test1`).catch((error: any) => {
     console.log(error)
   })
 }
